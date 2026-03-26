@@ -9,7 +9,10 @@
 - [x] **Estándares de Código:** Implementación de ESLint con tipado estricto (`eslint.config.ts`) e integración de Prettier para formato (estándar Enterprise).
 - [x] **Control de Versiones:** Repositorio inicializado y subido a GitHub con `.gitignore` robusto.
 - [x] **Clean Architecture:** Carpetas de domain, application, infrastructure y presentation creadas para Ticketing.
+- [x] **Arquitectura de Tests:** Implementación de *Test Colocation* y uso de la convención semántica BDD con archivos `.spec.ts`.
+- [x] **SRP (Single Responsibility):** Entidad `Seat` implementada aislando su estado interno y protegiendo sus invariantes de negocio.
+- [x] **Tests Unitarios:** Especificaciones creadas para la máquina de estados de `Seat` usando Vitest.
 
 ### Siguiente Paso 🚧
-- [ ] Aplicar Single Responsibility Principle (SRP): definir la entidad `Seat` con una sola responsabilidad.
-- [ ] Escribir tests unitarios desde cero para la entidad `Seat`.
+- [ ] Aplicar Open/Closed Principle (OCP): Diseñar la interfaz `PaymentStrategy` que usará el dominio Wallet.
+- [ ] Asegurar que el sistema de pagos sea extensible sin tener que modificar el código del núcleo.
