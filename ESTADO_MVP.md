@@ -16,3 +16,4 @@
 ### Siguiente Paso 🚧
 - [ ] Aplicar Open/Closed Principle (OCP): Diseñar la interfaz `PaymentStrategy` que usará el dominio Wallet.
 - [ ] Asegurar que el sistema de pagos sea extensible sin tener que modificar el código del núcleo.
+- [x] **OCP (Open/Closed Principle):** Designed the `PaymentStrategy` interface for the Wallet domain. The system is now extensible to new payment methods without modifying the core processor.
