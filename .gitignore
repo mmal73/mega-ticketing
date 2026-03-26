@@ -1,0 +1,25 @@
+# Dependencias
+node_modules/
+.pnpm-store/
+
+# Compilados
+dist/
+build/
+
+# Logs y bases de datos locales
+*.log
+.postgres_data/
+.redis_data/
+
+# Variables de entorno y secrets
+.env
+.env.local
+.env.*.local
+
+# Herramientas y caché
+.eslintcache
+.prettiercache
+coverage/
+
+# SO (macOS)
+.DS_Store
