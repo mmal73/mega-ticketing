@@ -16,7 +16,9 @@
 - [x] **LSP, ISP & DIP:** Created minimal, domain-specific repository interfaces (`SeatRepository`, `WalletRepository`). The domain dictates contracts, decoupled from infrastructure.
 - [x] **Modern TS Resolution:** Switched `moduleResolution` to `Bundler` in `tsconfig.json` to allow clean relative imports without explicit `.js` extensions.
 - [x] **Architecture Decision Records:** Documented initial setup and ESM decisions in ADR-001.
+- [x] **Clean Code (Naming):** Implemented `Event`, `Venue`, and `SeatMap` entities using revealing intent naming conventions, eliminating the need for explanatory comments.
+- [x] **Domain Encapsulation:** `SeatMap` successfully encapsulates the collection of seats, exposing business-meaningful methods like `getAvailableSeats()` instead of raw arrays.
+- [x] **BDD Specifications:** Wrote tests for `SeatMap` demonstrating clean code principles in testing.
 
-### Next Steps 🚧 (Week 2 - Clean Code)
-- [ ] Implement domain entities (`Event`, `Venue`, `SeatMap`) applying Clean Code naming conventions (revealing intent without comments).
-- [ ] Define domain error types (`SeatAlreadyReservedError`, etc.) to ensure clean error handling without swallowing exceptions.
+### Next Steps 🚧 (Week 2 - Tuesday)
+- [ ] Clean Error Handling: Define domain-specific error types (e.g., `SeatAlreadyReservedError`, `EventNotFoundError`) to prevent exception swallowing.
