@@ -19,6 +19,8 @@
 - [x] **Clean Code (Naming):** Implemented `Event`, `Venue`, and `SeatMap` entities using revealing intent naming conventions, eliminating the need for explanatory comments.
 - [x] **Domain Encapsulation:** `SeatMap` successfully encapsulates the collection of seats, exposing business-meaningful methods like `getAvailableSeats()` instead of raw arrays.
 - [x] **BDD Specifications:** Wrote tests for `SeatMap` demonstrating clean code principles in testing.
+- [x] **Clean Error Handling:** Defined domain-specific error types (`InvalidSeatStatusError`, `EventMismatchError`, etc.) to prevent exception swallowing and eliminate magic strings.
 
-### Next Steps 🚧 (Week 2 - Tuesday)
-- [ ] Clean Error Handling: Define domain-specific error types (e.g., `SeatAlreadyReservedError`, `EventNotFoundError`) to prevent exception swallowing.
+### Next Steps 🚧
+- [ ] Value Objects: Eliminate "Primitive Obsession" by implementing `SeatId`, `EventId`, and `BookingStatus` as immutable, self-validating objects.
+- [ ] Clean Code Functions: Implement `reserveSeat` ensuring a maximum of one level of abstraction per function.

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { Seat } from './Seat';
+import { InvalidSeatStatusError } from '../errors/TicketingErrors.js';
 
 describe('Seat Entity', () => {
   it('should create an available seat by default', () => {
@@ -21,7 +22,7 @@ describe('Seat Entity', () => {
     const seat = new Seat('seat-3', 'event-1', 'C', 10);
     seat.lock();
     
-    expect(() => seat.lock()).toThrowError('Cannot lock seat seat-3 because it is currently locked.');
+    expect(() => seat.lock()).toThrow(InvalidSeatStatusError);
   });
 
   it('should reserve a locked seat', () => {
@@ -36,7 +37,7 @@ describe('Seat Entity', () => {
     const seat = new Seat('seat-5', 'event-1', 'E', 4);
     
     // Intenta reservar sin bloquearlo primero
-    expect(() => seat.reserve()).toThrowError('Cannot reserve seat seat-5. It must be locked first.');
+    expect(() => seat.reserve()).toThrow(InvalidSeatStatusError);
   });
 
   it('should release a seat back to available', () => {

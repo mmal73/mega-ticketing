@@ -1,3 +1,5 @@
+import { InvalidSeatStatusError } from '../errors/TicketingErrors.js';
+
 export type SeatStatus = 'available' | 'locked' | 'reserved';
 
 export class Seat {
@@ -13,29 +15,20 @@ export class Seat {
     return this._status;
   }
 
-  /**
-   * Bloquea el asiento temporalmente (ej. cuando el usuario lo selecciona para pagar)
-   */
   public lock(): void {
     if (this._status !== 'available') {
-      throw new Error(`Cannot lock seat ${this.id} because it is currently ${this._status}.`);
+      throw new InvalidSeatStatusError(this.id, this._status, 'lock');
     }
     this._status = 'locked';
   }
 
-  /**
-   * Confirma la reserva del asiento una vez que el pago fue exitoso
-   */
   public reserve(): void {
     if (this._status !== 'locked') {
-      throw new Error(`Cannot reserve seat ${this.id}. It must be locked first.`);
+      throw new InvalidSeatStatusError(this.id, this._status, 'reserve');
     }
     this._status = 'reserved';
   }
 
-  /**
-   * Libera el asiento (ej. si el pago falló o el lock expiró)
-   */
   public release(): void {
     this._status = 'available';
   }
