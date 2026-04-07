@@ -1,4 +1,4 @@
-import { PaymentStrategy, PaymentResult } from './PaymentStrategy';
+import type { PaymentStrategy, PaymentResult } from './PaymentStrategy';
 
 export class WalletBalanceStrategy implements PaymentStrategy {
   async pay(amount: number, userId: string): Promise<PaymentResult> {

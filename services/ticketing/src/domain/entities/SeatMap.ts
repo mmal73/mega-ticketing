@@ -1,5 +1,5 @@
-import { Seat } from './Seat.js';
-import { EventMismatchError, SeatAlreadyExistsError, SeatNotFoundError } from '../errors/TicketingErrors.js';
+import { Seat } from './Seat';
+import { EventMismatchError, SeatAlreadyExistsError, SeatNotFoundError } from '../errors/TicketingErrors';
 
 export class SeatMap {
   private readonly _seats: Map<string, Seat> = new Map();
@@ -8,12 +8,12 @@ export class SeatMap {
 
   public addSeat(seat: Seat): void {
     if (seat.eventId !== this.eventId) {
-      throw new EventMismatchError(seat.id, this.eventId);
+      throw new EventMismatchError(seat.id.value, this.eventId);
     }
-    if (this._seats.has(seat.id)) {
-      throw new SeatAlreadyExistsError(seat.id);
+    if (this._seats.has(seat.id.value)) {
+      throw new SeatAlreadyExistsError(seat.id.value);
     }
-    this._seats.set(seat.id, seat);
+    this._seats.set(seat.id.value, seat);
   }
 
   public getAvailableSeats(): Seat[] {

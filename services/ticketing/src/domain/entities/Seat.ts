@@ -1,10 +1,11 @@
-import { InvalidSeatStatusError } from '../errors/TicketingErrors.js';
+import { InvalidSeatStatusError } from '../errors/TicketingErrors';
+import { SeatId } from '../value-objects/SeatId';
 
 export type SeatStatus = 'available' | 'locked' | 'reserved';
 
 export class Seat {
   constructor(
-    public readonly id: string,
+    public readonly id: SeatId,
     public readonly eventId: string,
     public readonly row: string,
     public readonly seatNumber: number,
@@ -17,14 +18,14 @@ export class Seat {
 
   public lock(): void {
     if (this._status !== 'available') {
-      throw new InvalidSeatStatusError(this.id, this._status, 'lock');
+      throw new InvalidSeatStatusError(this.id.value, this._status, 'lock');
     }
     this._status = 'locked';
   }
 
   public reserve(): void {
     if (this._status !== 'locked') {
-      throw new InvalidSeatStatusError(this.id, this._status, 'reserve');
+      throw new InvalidSeatStatusError(this.id.value, this._status, 'reserve');
     }
     this._status = 'reserved';
   }

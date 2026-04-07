@@ -1,4 +1,4 @@
-import { DomainError } from './DomainError.js';
+import { DomainError } from './DomainError';
 
 export class InvalidSeatStatusError extends DomainError {
   constructor(seatId: string, currentStatus: string, action: string) {

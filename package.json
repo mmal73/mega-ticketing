@@ -8,8 +8,9 @@
     "packages/*"
   ],
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest",
+    "test:strict": "pnpm run typecheck && vitest run",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
